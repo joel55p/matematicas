@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Científica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="encabezado">
+        <h1>Mi Página de Matemáticas</h1>
+        <div class="etiquetas">
+            <a  class="con" href="#uno">Conversiones</a>
+            <a class="con2" href="#tres">Volumen</a>
+            <a class="con3" href="#dos">Longitud</a>
+            
+            <a id="con4" href="#cuatro">unidades informaticas</a>
+        </div>
+    </div>
+
+
+    <div class="todolodemas">
+
+        <header>
+            <h1>Página de Matemáticas</h1>
+          </header>
+          <main>
+            <section>
+              <h2>Sección de Fórmulas</h2>
+              <p>En esta sección encontrarás fórmulas matemáticas importantes:</p>
+              <ul>
+                <li>Rectángulo	`A=bxxh`	`b` : base `h` : altura</li>
+    
+                <li>Triángulo	`A=(bxxh)/2`	`b` : base `h` : altura</li>
+    
+                <li>Rombo	`A=(Dxxd)/2`	`D` : diagonale mayor `d` : diagonal menor</li>
+    
+                <li>Trapecio	`A=(B+b)/2xxh`	`B` : base mayor `b` : base menor `h`: altura</li>
+                <!-- Agrega más fórmulas aquí -->
+              </ul>
+            </section>
+            <section>
+              <h2>Sección de Ejercicios</h2>
+              <p>Resuelve los siguientes ejercicios:</p>
+              <ol>
+                <li>Hallar el area de un rectangulo que tiene una base de 10cm y una altura de 50cm</li>
+                <li>Hallar el area de un trapecio cuyas bases son de 3 y 5 cm y altura es de 10cm</li>
+                <li>Hallar area de un triangulo que tiene 3m de largo y 5m de alto</li>
+                <!-- Agrega más ejercicios aquí -->
+              </ol>
+            </section>
+          </main>
+         
+    
+            <!--CALCULADORAAAAAAAAAAAAAA  -->
+      <div class="calculator">
+        <input type="text" class="display" id="display" readonly>
+        <div class="buttons">
+          <button class="number" onclick="appendToDisplay('7')">7</button>
+          <button class="number" onclick="appendToDisplay('8')">8</button>
+          <button class="number" onclick="appendToDisplay('9')">9</button>
+          <button class="operator" onclick="appendToDisplay('+')">+</button>
+          <button class="number" onclick="appendToDisplay('4')">4</button>
+          <button class="number" onclick="appendToDisplay('5')">5</button>
+          <button class="number" onclick="appendToDisplay('6')">6</button>
+          <button class="operator" onclick="appendToDisplay('-')">-</button>
+          <button class="number" onclick="appendToDisplay('1')">1</button>
+          <button class="number" onclick="appendToDisplay('2')">2</button>
+          <button class="number" onclick="appendToDisplay('3')">3</button>
+          <button class="operator" onclick="appendToDisplay('*')">*</button>
+          <button class="number" onclick="appendToDisplay('0')">0</button>
+          <button class="number" onclick="appendToDisplay('.')">.</button>
+          <button class="operator" onclick="calculate()">=</button>
+          <button class="operator" onclick="appendToDisplay('/')">/</button>
+          <button class="function" onclick="clearDisplay()">C</button>
+          <button class="function" onclick="deleteLast()">DEL</button>
+          <button class="function" onclick="calculatePower()">x^y</button>
+          <button class="function" onclick="calculateRoot()">√x</button>
+          <button class="function" onclick="calculateSin()">sin</button>
+          <button class="function" onclick="calculateCos()">cos</button>
+          <button class="function" onclick="calculateTan()">tan</button>
+        </div>
+        <footer>
+            <p>Derechos de autor © 2023. Todos los derechos reservados.</p>
+        </footer>
+      </div>
+
+    </div> 
+
+
+    <div class="demas" id="uno">
+        <div class="container">
+            <h1>Conversor de Temperatura</h1>
+            <label for="celsius">Celsius:</label>
+            <input type="number" id="celsius" placeholder="Ingrese temperatura en Celsius">
+        
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="number" id="fahrenheit" placeholder="Ingrese temperatura en Fahrenheit">
+        
+            <button onclick="convertToFahrenheit()">Convertir a Fahrenheit</button>
+            <button onclick="convertToCelsius()">Convertir a Celsius</button>
+          </div>  
+        </div>
+    </div>  
+
+    <div class="longitud" id="dos">
+        <div class="container">
+            <h1>Conversor de Distancia</h1>
+            <label for="kilometros">Kilómetros:</label>
+            <input type="number" id="kilometros" placeholder="Ingrese distancia en kilómetros">
+        
+            <label for="millas">Millas:</label>
+            <input type="number" id="millas" placeholder="Ingrese distancia en millas">
+        
+            <button onclick="convertToMillas()">Convertir a Millas</button>
+            <button onclick="convertToKilometros()">Convertir a Kilómetros</button>
+          </div>
+    </div>
+      
+    <div class="volumen" id="tres">
+        <div class="container">
+            <h1>Calculadora de Volumen</h1>
+            <label for="figura">Selecciona una figura:</label>
+            <select id="figura" onchange="mostrarCampos()">
+              <option value="seleccionar">Seleccionar</option>
+              <option value="cilindro">Cilindro</option>
+              <option value="esfera">Esfera</option>
+              <option value="cubo">Cubo</option>
+              <!-- Agrega más opciones de figuras aquí -->
+            </select>
+        
+            <div id="cilindroCampos" class="campos">
+              <label for="radio">Radio:</label>
+              <input type="number" id="radio">
+        
+              <label for="altura">Altura:</label>
+              <input type="number" id="altura">
+            </div>
+        
+            <div id="esferaCampos" class="campos">
+              <label for="radioEsfera">Radio:</label>
+              <input type="number" id="radioEsfera">
+            </div>
+        
+            <div id="cuboCampos" class="campos">
+              <label for="lado">Lado:</label>
+              <input type="number" id="lado">
+            </div>
+        
+            <button onclick="calcularVolumen()">Calcular Volumen</button>
+        
+            <div id="resultado"></div>
+          </div>
+    </div>
+
+    <div class="ui" id="cuatro">
+        <div class="container">
+            <h1>Conversor de Unidades Informáticas</h1>
+            <label for="unidades">Selecciona una unidad:</label>
+            <select id="unidades" onchange="mostrarInformacion()">
+              <option value="seleccionar">Seleccionar</option>
+              <option value="byte">Byte</option>
+              <option value="kilobyte">Kilobyte</option>
+              <option value="megabyte">Megabyte</option>
+              <option value="gigabyte">Gigabyte</option>
+              <!-- Agrega más opciones de unidades aquí -->
+            </select>
+        
+            <div id="informacion"></div>
+        
+            <div id="conversor">
+              <label for="cantidad">Cantidad:</label>
+              <input type="number" id="cantidad" placeholder="Ingrese la cantidad">
+        
+              <label for="resultado">Resultado:</label>
+              <input type="text" id="resultado" disabled>
+            </div>
+        
+            <button onclick="convertir()">Convertir</button>
+          </div>
+    </div>
+      
+   
+  <script src="script.js"></script>
+</body>
+</html>
